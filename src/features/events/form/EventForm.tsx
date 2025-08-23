@@ -1,50 +1,45 @@
 import { users } from "../../../lib/data/sampleData";
-import type { AppEvent } from "../../../lib/types";
+import { useAppDispatch, useAppSelector } from "../../../lib/stores/store";
+import { type AppEvent } from "../../../lib/types";
+import { closeForm, createEvent, updateEvent } from "../eventSlice";
 
-type Props = {
-  setFormOpen: (open: boolean) => void;
-  createEvent: (event: AppEvent) => void;
-  selectedEvent: AppEvent | null;
-  updateEvent: (event: AppEvent) => void;
-};
+export default function EventForm() {
+  const dispatch = useAppDispatch();
+  const selectedEvent = useAppSelector((state) => state.event.selectedEvent);
 
-export default function EventForm({
-  setFormOpen,
-  createEvent,
-  selectedEvent,
-  updateEvent,
-}: Props) {
   const initialValues = selectedEvent ?? {
     title: "",
     category: "",
     description: "",
+    date: "",
     city: "",
     venue: "",
-    date: "",
   };
 
   const onSubmit = (formData: FormData) => {
     const data = Object.fromEntries(formData.entries()) as unknown as AppEvent;
 
     if (selectedEvent) {
-      updateEvent({ ...selectedEvent, ...data });
-      setFormOpen(false);
+      dispatch(updateEvent({ ...selectedEvent, ...data }));
+      dispatch(closeForm());
       return;
     } else {
-      createEvent({
-        ...data,
-        id: crypto.randomUUID(),
-        hostUid: users[0].uid,
-        attendees: [
-          {
-            id: users[0].uid,
-            displayName: users[0].displayName,
-            photoURL: users[0].photoURL,
-            isHost: true,
-          },
-        ],
-      });
-      setFormOpen(false);
+      dispatch(
+        createEvent({
+          ...data,
+          id: crypto.randomUUID(),
+          hostUid: users[0].uid,
+          attendees: [
+            {
+              id: users[0].uid,
+              displayName: users[0].displayName,
+              photoURL: users[0].photoURL,
+              isHost: true,
+            },
+          ],
+        })
+      );
+      dispatch(closeForm());
     }
   };
 
@@ -58,20 +53,20 @@ export default function EventForm({
           defaultValue={initialValues.title}
           name="title"
           type="text"
-          className="input input-lg w-full "
+          className="input input-lg w-full"
           placeholder="Event title"
         />
         <input
           defaultValue={initialValues.category}
           name="category"
           type="text"
-          className="input input-lg w-full "
+          className="input input-lg w-full"
           placeholder="Category"
         />
         <textarea
           defaultValue={initialValues.description}
           name="description"
-          className="textarea textarea-lg w-full "
+          className="textarea textarea-lg w-full"
           placeholder="Description"
         />
         <input
@@ -82,26 +77,26 @@ export default function EventForm({
           }
           name="date"
           type="datetime-local"
-          className="input input-lg w-full "
+          className="input input-lg w-full"
           placeholder="Date"
         />
         <input
           defaultValue={initialValues.city}
           name="city"
           type="text"
-          className="input input-lg w-full "
+          className="input input-lg w-full"
           placeholder="City"
         />
         <input
           defaultValue={initialValues.venue}
           name="venue"
           type="text"
-          className="input input-lg w-full "
+          className="input input-lg w-full"
           placeholder="Venue"
         />
         <div className="flex justify-end w-full gap-3">
           <button
-            onClick={() => setFormOpen(false)}
+            onClick={() => dispatch(closeForm())}
             type="button"
             className="btn btn-neutral"
           >
