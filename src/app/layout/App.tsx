@@ -1,4 +1,4 @@
-import EventDashboard from "../../features/events/dashboard/EventDashboard";
+import AnimatedOutlet from "../router/AnimatedOutlet";
 import Navbar from "./nav/Navbar";
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div>
       <Navbar />
       <div className="container mx-auto px-10 mt-24">
-        <EventDashboard />
+        <AnimatedOutlet />
       </div>
     </div>
   );

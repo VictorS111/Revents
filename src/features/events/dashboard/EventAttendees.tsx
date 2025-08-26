@@ -1,4 +1,4 @@
-import type { Attendee } from "../../../lib/types";
+import { type Attendee } from "../../../lib/types";
 
 type Props = {
   attendees: Attendee[];

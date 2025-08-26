@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
 @plugin "daisyui/theme" {
   name: "light";
   default: false;
@@ -35,4 +34,8 @@
   --border: 1px;
   --depth: 1;
   --noise: 0;
+}
+
+a.active {
+  @apply text-accent;
 }
