@@ -5,6 +5,7 @@ export type AppUser = {
   displayName: string;
   email: string;
   photoURL?: string;
+  providerId: string;
 };
 
 export type AppEvent = {
@@ -24,7 +25,7 @@ export type AppEvent = {
 
 export type FirestoreAppEvent = Omit<AppEvent, "date"> & {
   date: Timestamp;
-}
+};
 
 export type Attendee = {
   id: string;
@@ -61,4 +62,4 @@ export type Address = {
   postcode: string;
   country: string;
   country_code: string;
-}
+};

@@ -6,18 +6,21 @@ export const users: AppUser[] = [
     displayName: "Bob",
     email: "bob@test.com",
     photoURL: 'https://randomuser.me/api/portraits/men/1.jpg',
+    providerId: ""
   },
   {
     uid: "tom-id",
     displayName: "Tom",
     email: "tom@test.com",
     photoURL: "https://randomuser.me/api/portraits/men/3.jpg",
+    providerId: ""
   },
   {
     uid: "jane-id",
     displayName: "Jane",
     email: "jane@test.com",
     photoURL: "https://randomuser.me/api/portraits/women/8.jpg",
+    providerId: ""
   },
 ];
 
