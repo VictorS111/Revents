@@ -1,11 +1,21 @@
-import type { Timestamp } from "firebase/firestore";
+import { Timestamp } from "firebase/firestore";
 
 export type AppUser = {
   uid: string;
   displayName: string;
-  email: string;
   photoURL?: string;
+  email: string;
   providerId: string;
+};
+
+export type Profile = {
+  id: string;
+  photoURL?: string;
+  displayName: string;
+  createdAt: string;
+  description: string;
+  followersCount: number;
+  followingCount: number;
 };
 
 export type AppEvent = {
@@ -19,6 +29,7 @@ export type AppEvent = {
   latitude: number;
   longitude: number;
   hostUid: string;
+  isCancelled: boolean;
   attendees: Attendee[];
   attendeeIds: string[];
 };
@@ -52,9 +63,7 @@ export type Suggestion = {
 
 export type Address = {
   name: string;
-  house_number: string;
   road: string;
-  neighbourhood: string;
   suburb: string;
   city: string;
   county: string;
