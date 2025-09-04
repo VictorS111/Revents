@@ -6,13 +6,13 @@ import {
 } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { useState } from "react";
+import ProfilePhotos from "./ProfilePhotos";
+import ProfileEvents from "./ProfileEvents";
+import ProfileMembers from "./ProfileMembers";
+import ProfileAbout from "./ProfileAbout";
 import { AnimatePresence, motion } from "motion/react";
 import { type Profile } from "../../lib/types";
 import { useAppSelector } from "../../lib/stores/store";
-import ProfilePhotos from "./ProfilePhotos";
-import ProfileAbout from "./ProfileAbout";
-import ProfileEvents from "./ProfileEvents";
-import ProfileMembers from "./ProfileMembers";
 
 export default function ProfileContent({ profile }: { profile: Profile }) {
   const [selectedItem, setSelectedItem] = useState("about");
@@ -56,7 +56,7 @@ export default function ProfileContent({ profile }: { profile: Profile }) {
       case "photos":
         return <ProfilePhotos profile={profile} editMode={editMode} />;
       case "events":
-        return <ProfileEvents />;
+        return <ProfileEvents profile={profile} />;
       case "members":
         return <ProfileMembers />;
       default:
