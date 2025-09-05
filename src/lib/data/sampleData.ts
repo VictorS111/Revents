@@ -34,8 +34,7 @@ export const events: AppEvent[] = [
     description: "Activity 2 months ago",
     category: "drinks",
     city: "London",
-    venue:
-      "The Lamb and Flag, 33, Rose Street, Seven Dials, Covent Garden, London, Greater London, England, WC2E 9EB, United Kingdom",
+    venue: "The Lamb and Flag, 33, Rose Street, Seven Dials, Covent Garden, London, Greater London, England, WC2E 9EB, United Kingdom",
     latitude: 51.51171665,
     longitude: -0.1256611057818921,
     hostUid: users[0].uid,
@@ -54,6 +53,7 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[0].uid, users[1].uid],
+    isCancelled: false
   },
   {
     id: "activity-p2",
@@ -64,8 +64,7 @@ export const events: AppEvent[] = [
     description: "Activity 1 month ago",
     category: "culture",
     city: "Paris",
-    venue:
-      "Louvre Museum, Rue Saint-Honoré, Quartier du Palais Royal, 1st Arrondissement, Paris, Ile-de-France, Metropolitan France, 75001, France",
+    venue: "Louvre Museum, Rue Saint-Honoré, Quartier du Palais Royal, 1st Arrondissement, Paris, Ile-de-France, Metropolitan France, 75001, France",
     latitude: 48.8611473,
     longitude: 2.33802768704666,
     hostUid: users[1].uid,
@@ -90,6 +89,7 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[0].uid, users[1].uid, users[2].uid],
+    isCancelled: false
   },
   {
     id: "activity-f1",
@@ -113,6 +113,7 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[2].uid],
+    isCancelled: false
   },
   {
     id: "activity-f2",
@@ -142,6 +143,7 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[1].uid, users[2].uid],
+    isCancelled: false
   },
   {
     id: "activity-f3",
@@ -165,6 +167,7 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[1].uid],
+    isCancelled: false
   },
   {
     id: "activity-f4",
@@ -194,5 +197,6 @@ export const events: AppEvent[] = [
       },
     ],
     attendeeIds: [users[0].uid, users[2].uid],
+    isCancelled: false
   },
 ];
