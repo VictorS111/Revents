@@ -18,7 +18,7 @@ export type Profile = {
   displayName: string;
   createdAt: string;
   description: string;
-  followersCount: number;
+  followerCount: number;
   followingCount: number;
 };
 

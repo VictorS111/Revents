@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { eventSlice } from "../../features/events/eventSlice";
 import { accountSlice } from "../../features/account/accountSlice";
 import { firestoreSlice } from "../firebase/firestoreSlice";
+import { followSlice } from "../../features/profiles/followSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     event: eventSlice.reducer,
     account: accountSlice.reducer,
     firestore: firestoreSlice.reducer,
+    follow: followSlice.reducer,
   },
 });
 
@@ -19,6 +21,5 @@ export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
 
-// Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
 export const useAppSelector = useSelector.withTypes<RootState>();
